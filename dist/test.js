@@ -5,7 +5,7 @@ const rsa_1 = require("./rsa");
 const p = 61; // First prime number
 const q = 53; // Second prime number
 const e = 17; // Public exponent
-const message = BigInt(65); // Message to encrypt/sign
+const message = BigInt(65); // Message to encrypt
 console.log('=== RSA Encryption/Decryption Test ===');
 try {
     const result = (0, rsa_1.RSA)(p, q, e, message);
@@ -17,14 +17,17 @@ try {
 catch (error) {
     console.error('Error:', error?.message || 'An error occurred');
 }
+const p2 = 37;
+const q2 = 41;
+const e2 = 13;
+const message2 = BigInt(65);
 console.log('\n=== RSA Digital Signature Test ===');
 try {
-    const isValid = (0, rsa_1.RSA_DIGITAL_SIGNATURE)(p, q, e, message);
-    console.log('Message:', Number(message));
-    console.log('Signature:', Number(isValid.signature));
-    console.log('Verification:', Number(isValid.verification));
-    console.log('Result:', isValid.result);
-    console.log('Signature verification:', isValid ? 'Valid!' : 'Invalid!');
+    const signatureResult = (0, rsa_1.RSA_DIGITAL_SIGNATURE)(p2, q2, e2, message2);
+    console.log('Message:', Number(message2));
+    console.log('Signature:', Number(signatureResult.signature));
+    console.log('Verification:', Number(signatureResult.verification));
+    console.log('Result:', signatureResult.result ? 'Valid!' : 'Invalid!');
 }
 catch (error) {
     console.error('Error:', error?.message || 'An error occurred');

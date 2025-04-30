@@ -1,10 +1,10 @@
 import { RSA, RSA_DIGITAL_SIGNATURE } from './rsa';
 
 // Test values
-const p = 61;  // First prime number
-const q = 53;  // Second prime number
-const e = 17;  // Public exponent
-const message = BigInt(65);  // Message to encrypt/sign
+const p = 61;
+const q = 53;
+const e = 17;
+const message = BigInt(65);
 
 console.log('=== RSA Encryption/Decryption Test ===');
 try {
@@ -17,10 +17,16 @@ try {
     console.error('Error:', error?.message || 'An error occurred');
 }
 
+// Test values for digital signature
+const p2 = 37;
+const q2 = 41;
+const e2 = 13;
+const message2 = BigInt(65);
+
 console.log('\n=== RSA Digital Signature Test ===');
 try {
-    const signatureResult = RSA_DIGITAL_SIGNATURE(p, q, e, message);
-    console.log('Message:', Number(message));
+    const signatureResult = RSA_DIGITAL_SIGNATURE(p2, q2, e2, message2);
+    console.log('Message:', Number(message2));
     console.log('Signature:', Number(signatureResult.signature));
     console.log('Verification:', Number(signatureResult.verification));
     console.log('Result:', signatureResult.result ? 'Valid!' : 'Invalid!');

@@ -1,4 +1,3 @@
-
 /**
  * RSA encryption and decryption implementation
  * @param p - First prime number
@@ -77,7 +76,8 @@ function keySchedule(p: number, q: number, e: number) {
  * @returns Encrypted message as bigint
  */
 function rsaEncrypt(publicKey: { e: bigint, n: bigint }, message: bigint): bigint {
-    return message ** publicKey.e % publicKey.n;
+    const mBig = BigInt(message);
+    return mBig ** publicKey.e % publicKey.n;
 }
 
 /**

@@ -1,6 +1,6 @@
 # RSA Implementation in TypeScript
 
-This is a simple implementation of the RSA (Rivest–Shamir–Adleman) cryptographic algorithm in TypeScript. The implementation includes key generation, encryption, decryption, and digital signature functionalities.
+This is a simple implementation of the RSA algorithm in TypeScript by John Gonsalves. The implementation includes key generation, encryption, decryption, and digital signature functionalities.
 
 ## Prerequisites
 
@@ -15,15 +15,11 @@ This is a simple implementation of the RSA (Rivest–Shamir–Adleman) cryptogra
 npm install
 ```
 
-## Running the Example
+## Running the Tests
 
-The repository includes a test file (`test.ts`) that demonstrates both RSA encryption/decryption and digital signatures with example values:
-- p = 61 (first prime number)
-- q = 53 (second prime number)
-- e = 17 (public exponent)
-- message = 65 (example message to encrypt/sign)
+The repository includes a test file (`test.ts`) that demonstrates both RSA encryption/decryption and digital signatures with example values.
 
-To run the example:
+To run the tests:
 ```bash
 npx tsc && node dist/test.js
 ```
@@ -53,6 +49,4 @@ The implementation uses BigInt for handling large number calculations, which is 
 The implementation includes a digital signature function that:
 1. Creates a signature by encrypting a message with the private key
 2. Verifies the signature by decrypting it with the public key
-3. Compares the result with the original message
-
-This demonstrates how RSA can be used for both encryption and digital signatures.
+3. Compares the result with the original message to verify

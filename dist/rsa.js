@@ -75,7 +75,8 @@ function keySchedule(p, q, e) {
  * @returns Encrypted message as bigint
  */
 function rsaEncrypt(publicKey, message) {
-    return message ** publicKey.e % publicKey.n;
+    const mBig = BigInt(message);
+    return mBig ** publicKey.e % publicKey.n;
 }
 /**
  * RSA decryption function
