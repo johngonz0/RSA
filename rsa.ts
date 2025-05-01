@@ -75,9 +75,8 @@ function keySchedule(p: number, q: number, e: number) {
  * @param message - Message to encrypt
  * @returns Encrypted message as bigint
  */
-function rsaEncrypt(publicKey: { e: bigint, n: bigint }, message: bigint): bigint {
-    const mBig = BigInt(message);
-    return mBig ** publicKey.e % publicKey.n;
+export function rsaEncrypt(publicKey: { e: bigint, n: bigint }, message: bigint): bigint {
+    return message ** publicKey.e % publicKey.n;
 }
 
 /**
@@ -93,6 +92,7 @@ function rsaDecrypt(privateKey: { d: bigint, n: bigint }, ciphertext: bigint): b
 
 /**
  * Calculate Greatest Common Divisor using Euclidean algorithm
+ * I cannot take credit for this helper function, I found it on the internet
  * @param a - First number
  * @param b - Second number
  * @returns Greatest Common Divisor as bigint
@@ -108,6 +108,7 @@ function gcd(a: bigint, b: bigint): bigint {
 
 /**
  * Calculate Multiplicative Inverse using Extended Euclidean algorithm
+ * I cannot take credit for this helper function, I found it on the internet
  * @param a - First number
  * @param m - Second number
  * @returns Multiplicative Inverse as bigint

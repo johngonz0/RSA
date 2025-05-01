@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RSA_DIGITAL_SIGNATURE = exports.RSA = void 0;
+exports.rsaEncrypt = rsaEncrypt;
 /**
  * RSA encryption and decryption implementation
  * @param p - First prime number
@@ -75,8 +76,7 @@ function keySchedule(p, q, e) {
  * @returns Encrypted message as bigint
  */
 function rsaEncrypt(publicKey, message) {
-    const mBig = BigInt(message);
-    return mBig ** publicKey.e % publicKey.n;
+    return message ** publicKey.e % publicKey.n;
 }
 /**
  * RSA decryption function
@@ -90,6 +90,7 @@ function rsaDecrypt(privateKey, ciphertext) {
 }
 /**
  * Calculate Greatest Common Divisor using Euclidean algorithm
+ * I cannot take credit for this helper function, I found it on the internet
  * @param a - First number
  * @param b - Second number
  * @returns Greatest Common Divisor as bigint
@@ -104,6 +105,7 @@ function gcd(a, b) {
 }
 /**
  * Calculate Multiplicative Inverse using Extended Euclidean algorithm
+ * I cannot take credit for this helper function, I found it on the internet
  * @param a - First number
  * @param m - Second number
  * @returns Multiplicative Inverse as bigint

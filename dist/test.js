@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const rsa_1 = require("./rsa");
 // Test values
-const p = 61; // First prime number
-const q = 53; // Second prime number
-const e = 17; // Public exponent
-const message = BigInt(65); // Message to encrypt
+const p = 61;
+const q = 53;
+const e = 17;
+const message = BigInt(65);
 console.log('=== RSA Encryption/Decryption Test ===');
 try {
     const result = (0, rsa_1.RSA)(p, q, e, message);
@@ -17,6 +17,7 @@ try {
 catch (error) {
     console.error('Error:', error?.message || 'An error occurred');
 }
+// Test values for digital signature
 const p2 = 37;
 const q2 = 41;
 const e2 = 13;
